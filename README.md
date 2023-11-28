@@ -1,0 +1,2 @@
+# SnapMinds_BACK
+SnapMindsのバックエンドリポジトリ
