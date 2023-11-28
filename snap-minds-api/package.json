@@ -1,0 +1,29 @@
+{
+  "name": "smapminds",
+  "version": "1.0.0",
+  "description": "snap minds backend",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Teclub200/SnapMinds_BACK.git"
+  },
+  "author": "Sujan Shrestha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Teclub200/SnapMinds_BACK/issues"
+  },
+  "homepage": "https://github.com/Teclub200/SnapMinds_BACK#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "keywords": [
+    "backend",
+    "of",
+    "sanp",
+    "minds"
+  ]
+}
