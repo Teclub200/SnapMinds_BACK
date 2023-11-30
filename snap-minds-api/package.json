@@ -2,10 +2,11 @@
   "name": "smapminds",
   "version": "1.0.0",
   "description": "snap minds backend",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,8 @@
     "of",
     "sanp",
     "minds"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
