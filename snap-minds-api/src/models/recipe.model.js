@@ -19,6 +19,20 @@ const recipeSchema = new Schema(
             type: String, 
             required: true
         },
+        process:[
+          {
+            subProcess:{
+              type: String,
+              required: true
+            }
+          }
+        ],
+        advice:{
+          type: String
+        },
+        dviceUsed:{
+          type: String
+        },
         tags:{
           type: [String],
           required: true
