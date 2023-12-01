@@ -85,7 +85,7 @@ const loginUser = asyncHandler( async(req, res) => {
 
 const login = async(req,res) => {
   try{
-    const { username, password } = req.body;
+    const { email, password } = req.body;
     const user = await User.findOne({username: username});
     if (!user) {
       throw new ApiError(400, "User does not exit. ")

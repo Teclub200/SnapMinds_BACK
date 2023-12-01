@@ -12,13 +12,13 @@ const userSchema = new Schema(
             trim: true, 
             index: true
         },
-        // email: {
-        //     type: String,
-        //     required: true,
-        //     unique: true,
-        //     lowecase: true,
-        //     trim: true, 
-        // },
+        email: {
+            type: String,
+            required: true,
+            unique: true,
+            lowecase: true,
+            trim: true, 
+        },
         fullName: {
             type: String,
             required: true,
@@ -64,7 +64,7 @@ userSchema.methods.generateAccessToken = function(){
     return jwt.sign(
         {
             _id: this._id,
-            // email: this.email,
+            email: this.email,
             username: this.username,
             fullName: this.fullName
         },
