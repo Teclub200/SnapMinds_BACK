@@ -30,12 +30,12 @@ const recipeSchema = new Schema(
         advice:{
           type: String
         },
-        dviceUsed:{
+        deviceUsed:{
           type: String
         },
-        tags:{
-          type: [String],
-          required: true
+        genre:{
+          type: Schema.Types.ObjectId,
+          ref: "Genre"
         },
         likeCount: {
             type: Number,
