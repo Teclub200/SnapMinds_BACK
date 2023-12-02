@@ -7,26 +7,26 @@ const recipeSchema = new Schema(
         //     type: String, //cloudinary url
         //     required: true
         // },
+        // userID:{
+        //   type: String,
+        //   required: true,
+        // },
+        title: {
+          type: String, 
+          required: true
+        },
         thumbnail: {
             type: String, //cloudinary url
-            required: true
-        },
-        title: {
-            type: String, 
             required: true
         },
         description: {
             type: String, 
             required: true
         },
-        process:[
-          {
-            subProcess:{
-              type: String,
-              required: true
-            }
-          }
-        ],
+        process:{
+          type: [String],
+          required: true
+        },
         advice:{
           type: String
         },
@@ -37,6 +37,10 @@ const recipeSchema = new Schema(
           type: Schema.Types.ObjectId,
           ref: "Genre"
         },
+        // genre:{
+        //   type: String,
+        //   required: true,
+        // },
         likeCount: {
             type: Number,
             default: 0
@@ -47,7 +51,8 @@ const recipeSchema = new Schema(
         },
         owner: {
             type: Schema.Types.ObjectId,
-            ref: "User"
+            ref: "User",
+            required: true,
         }
 
     }, 
