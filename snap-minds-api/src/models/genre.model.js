@@ -5,18 +5,22 @@ const genreSchema = new Schema({
     type: String,
     required : true,
   },
-  genre:{
+  genreName:{
     type: String,
     required: true,
   },
-  subGenre:[
-    {
-      subGenereName:{
-        type: String,
-        require: false,
-      }
-    }
-  ]
+  // subGenre:[
+  //   {
+  //     id:{
+  //       type: String,
+  //       require: true,
+  //     },
+  //     subGenereName:{
+  //       type: String,
+  //       require: false,
+  //     }
+  //   }
+  // ]
 }, {timestamps:true})
 
 export const Genre = mongoose.model("Genre", genreSchema)
