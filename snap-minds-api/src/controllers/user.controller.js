@@ -94,7 +94,7 @@ const loginUser = asyncHandler( async (req, res) => {
 
   const isPasswordMatch = await userEmail.isPasswordCorrect(password);
   if (!isPasswordMatch) {
-      throw new ApiError(409, "Invalid credentials.")
+      throw new ApiError(401, "Invalid credentials.")
   }
 
   const loginrequestedUser = await User.findById(userEmail._id).select(
