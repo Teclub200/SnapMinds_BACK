@@ -34,18 +34,9 @@ const recipeSchema = new Schema(
           type: String
         },
         genre:{
-          type: String,
-          required: true,
-          subGenre:[
-            {
-              name:{
-                type: String,
-                reqired: true,
-              },
-            }
-          ]
+          type: Schema.Types.ObjectId,
+          ref: "Genre"
         },
-
         likeCount: {
             type: Number,
             default: 0
