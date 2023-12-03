@@ -46,7 +46,16 @@ const createPost = asyncHandler( async (req, res) =>{
     )
   });
 
+  const getFeedPosts = asyncHandler( async (req, res) =>{
+    const post = await Recipe.find();
+    return res.status(201).json(
+      new ApiResponse(200, post, "Post fetched Successfully")
+    )
+    })
+
+
 export{
   createPost,
+  getFeedPosts,
 
 }
