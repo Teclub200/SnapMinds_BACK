@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { createPost } from "../controllers/post.controller.js";
+import { createPost, getFeedPosts } from "../controllers/post.controller.js";
 import {upload} from "../middlewares/multer.middleware.js"
 
 
@@ -15,6 +15,7 @@ router.route("/post").post(
     createPost
   )
 
+router.route("/allpost")
 
 
 export default router
