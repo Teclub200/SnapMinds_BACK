@@ -61,18 +61,39 @@ userSchema.methods.isPasswordCorrect = async function(password){
 }
 
 userSchema.methods.generateAccessToken = function(){
+    // return jwt.sign(
+    //     {
+    //         _id: this._id,
+    //         email: this.email,
+    //         username: this.username,
+    //         // fullName: this.fullName
+    //     },
+    //     process.env.ACCESS_TOKEN_SECRET,
+    //     {
+    //         expiresIn: process.env.ACCESS_TOKEN_EXPIRY
+    //     }
+    // )
     return jwt.sign(
         {
             _id: this._id,
             email: this.email,
             username: this.username,
-            fullName: this.fullName
+            // fullName: this.fullName
         },
         process.env.ACCESS_TOKEN_SECRET,
         {
             expiresIn: process.env.ACCESS_TOKEN_EXPIRY
-        }
-    )
+        }, (err,token) =>{
+          if (err) throw err;
+          res.cookie('token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV !== 'development', // Use secure cookies in production
+            sameSite: 'strict', // Prevent CSRF attacks
+            maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+          });
+        })
+    
+    
 }
 userSchema.methods.generateRefreshToken = function(){
     return jwt.sign(

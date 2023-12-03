@@ -27,7 +27,7 @@ const createPost = asyncHandler( async (req, res) =>{
       throw new ApiError(400, "Thumbnail file is required")
     }
 
-    const post = await Recipe.create({
+    const newPost = await Recipe.create({
       title,
       description,
       thumbnail: thumbnail.url,
@@ -40,10 +40,9 @@ const createPost = asyncHandler( async (req, res) =>{
       owner,
   })
     // Save the post
-    await post.save();
-  
+    await newPost.save();
     return res.status(201).json(
-      new ApiResponse(200, createdUser, "User registered Successfully")
+      new ApiResponse(200, newPost, "Post created Successfully")
     )
   });
 
