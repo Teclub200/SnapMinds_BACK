@@ -15,7 +15,7 @@ router.route("/post").post(
     createPost
   )
 
-router.route("/allpost")
+router.route("/allpost").post(getFeedPosts)
 
 
 export default router
