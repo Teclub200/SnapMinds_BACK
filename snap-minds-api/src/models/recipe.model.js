@@ -3,39 +3,31 @@ import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
 
 const recipeSchema = new Schema(
     {
-        // photoFile: {
-        //     type: String, //cloudinary url
-        //     required: true
-        // },
-        thumbnail: {
-            type: String, //cloudinary url
-            required: true
+        genre:{
+          type:[String],
+          required: true
         },
         title: {
-            type: String, 
+          type: String, 
+          required: true
+        },
+        thumbnail: {
+            type: String, //cloudinary url
             required: true
         },
         description: {
             type: String, 
             required: true
         },
-        process:[
-          {
-            subProcess:{
-              type: String,
-              required: true
-            }
-          }
-        ],
+        process:{
+          type: [String],
+          required: true
+        },
         advice:{
           type: String
         },
         deviceUsed:{
           type: String
-        },
-        genre:{
-          type: Schema.Types.ObjectId,
-          ref: "Genre"
         },
         likeCount: {
             type: Number,
@@ -47,7 +39,8 @@ const recipeSchema = new Schema(
         },
         owner: {
             type: Schema.Types.ObjectId,
-            ref: "User"
+            ref: "User",
+            required: true,
         }
 
     }, 

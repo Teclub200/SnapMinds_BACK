@@ -1,26 +1,24 @@
 import mongoose, {Schema} from "mongoose";
 
 const genreSchema = new Schema({
-  id: {
-    type: String,
-    required : true,
+  _id: {
+    type: Schema.ObjectId,
+    auto: true
   },
   genreName:{
     type: String,
     required: true,
   },
-  // subGenre:[
-  //   {
-  //     id:{
-  //       type: String,
-  //       require: true,
-  //     },
-  //     subGenereName:{
-  //       type: String,
-  //       require: false,
-  //     }
-  //   }
-  // ]
+  isActive: {
+    type: Boolean,
+    default: true
+  },
+  posts:[
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Recipe'
+    }
+  ]
 }, {timestamps:true})
 
 export const Genre = mongoose.model("Genre", genreSchema)

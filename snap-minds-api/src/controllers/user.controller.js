@@ -4,6 +4,8 @@ import { User} from "../models/user.model.js"
 import {uploadOnCloudinary} from "../utils/cloudinary.js"
 import { ApiResponse } from "../utils/ApiResponse.js";
 
+import jwt from "jsonwebtoken"
+
 const registerUser = asyncHandler( async (req, res) => {
     // get user details from frontend
     // validation - not empty
@@ -17,7 +19,7 @@ const registerUser = asyncHandler( async (req, res) => {
 
 
     const {fullName, email, username, password } = req.body
-    console.log("email: ", email);
+    // console.log("email: ", email);
 
     if (
         [fullName, email, username, password].some((field) => field?.trim() === "")
@@ -95,8 +97,7 @@ const loginUser = asyncHandler( async (req, res) => {
   const isPasswordMatch = await userEmail.isPasswordCorrect(password);
   if (!isPasswordMatch) {
       throw new ApiError(401, "Invalid credentials.")
-  }
-
+  } 
   const loginrequestedUser = await User.findById(userEmail._id).select(
     "-password -watchHistory -refreshToken"
   )
@@ -110,7 +111,10 @@ const loginUser = asyncHandler( async (req, res) => {
   )
 })
 
+// const logoutUser = asyncHandler( async (req, res) => {
+
 export {
     registerUser,
     loginUser,
+    // logoutUser,
 }
